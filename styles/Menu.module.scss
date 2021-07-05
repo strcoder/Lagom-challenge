@@ -1,0 +1,46 @@
+.menu {
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  position: fixed;
+  background-color: white;
+}
+
+.menuBody {
+  gap: 40px;
+  padding: 5%;
+  width: 100%;
+  height: 80vh;
+  display: grid;
+  color: #999;
+  align-content: flex-start;
+  background-color: black;
+  & button {
+    padding: 0;
+    border: none;
+    display: flex;
+    color: white;
+    background: none;
+    font-size: 2.5rem;
+    justify-self: flex-end;
+  }
+  & a {
+    gap: 5px;
+    display: flex;
+    padding-left: 10%;
+    font-size: 1.87rem;
+    align-items: center;
+    font-weight: bolder;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .menu {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .menuBody {
+    height: 100vh;
+    grid-column-start: 2;
+  }
+}

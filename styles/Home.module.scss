@@ -1,0 +1,143 @@
+.container {
+  display: grid;
+  & > figure img {
+    max-height: 820px;
+  }
+}
+
+.main {
+  display: grid;
+}
+
+.hero {
+  padding: 5%;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  & hr {
+    width: 100%;
+    height: 4px;
+    background-color: black;
+  }
+}
+
+.heroHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & button {
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background: none;
+    font-size: 2.5rem;
+  }
+}
+
+.heroBody {
+  max-width: 420px;
+  justify-self: center;
+  & h1 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+}
+
+.mainImage {
+  margin: 0;
+  display: grid;
+  transition: all ease 0.2s;
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all ease 0.2s;
+  }
+}
+
+.links {
+  gap: 30px;
+  display: grid;
+  padding: 40px 5%;
+  align-items: center;
+  & a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  & hr {
+    width: 100%;
+    height: 4px;
+    background-color: black;
+  }
+  & span {
+    font-size: 1.87rem;
+    font-weight: bolder;
+  }
+  & a span:nth-child(2) {
+    transform: rotate(-45deg);
+  }
+}
+
+.images {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  & img {
+    width: 100vw;
+    height: 100vw;
+    object-fit: cover;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    & > figure {
+      grid-row-start: 1;
+      grid-column-start: 1;
+    }
+  }
+
+  .images {
+    grid-template-columns: repeat(2, 1fr);
+    & img {
+      height: fit-content;
+    }
+  }
+
+  .heroBody {
+    padding-top: 50px;
+    & h1 {
+      margin: 0;
+      text-align: left;
+    }
+  }
+
+  .links,
+  .images {
+    grid-column-end: span 2;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .heroBody {
+    padding-top: 100px;
+  }
+  .links,
+  .images {
+    grid-column-end: span 1;
+  }
+  .links a:last-child {
+    color: #888;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .heroBody {
+    & h1 {
+      margin: 0;
+      text-align: left;
+      font-size: 3.5rem;
+    }
+  }
+}
