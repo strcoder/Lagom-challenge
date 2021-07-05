@@ -2,14 +2,22 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../styles/Home.module.scss';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { IoMdMenu, IoMdArrowRoundForward } from 'react-icons/io';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Menu from '../components/Menu';
 
 export default function Home() {
   const items = ['Home', 'About', 'Work'];
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(items[0]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000)
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -28,6 +36,15 @@ export default function Home() {
         />
         <link rel='icon' href='/ggg.svg' />
       </Head>
+
+      {loading && (
+        <section className={`${styles.loading} slideOutUp`}>
+          <Image src='/Lagom.svg' alt='Lagom logo' width={320} height={120} loading='lazy' />
+          <span className='loading'>
+            <AiOutlineLoading3Quarters size={50} />
+          </span>
+        </section>
+      )}
 
       {open && (
         <Menu

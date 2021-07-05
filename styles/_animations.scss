@@ -47,6 +47,34 @@
   }
 }
 
+@keyframes loading {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideOutUp {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+.loading {
+  animation-duration: 1s;
+  animation-name: loading;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
 .bounceIn {
   animation-name: bounceIn;
   animation-duration: 0.75s;
@@ -55,4 +83,10 @@
 .slideInDown {
   animation-duration: 0.75s;
   animation-name: slideInDown;
+}
+
+.slideOutUp {
+  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-name: slideOutUp;
 }
